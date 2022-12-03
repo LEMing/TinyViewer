@@ -1,0 +1,33 @@
+@use "sass:math";
+@import '../../variables';
+$spinner-color: $preloader-color;
+$size: 38px;
+$border-width: $size / 6;
+$radius: $size / 2;
+$border-offset: $border-width / 4;
+$spinner-size: math.hypot($radius - $border-offset, $radius - $border-offset);
+
+.Spinner {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  &:after {
+    content: '';
+    display: block;
+    width: $spinner-size;
+    height: $spinner-size;
+    border-radius: 50%;
+    border: $border-width solid $spinner-color;
+    border-color: $spinner-color transparent $spinner-color transparent;
+    animation: spinner-animation 0.8s ease-in-out infinite;
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
