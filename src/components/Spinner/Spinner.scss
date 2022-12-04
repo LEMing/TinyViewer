@@ -2,9 +2,9 @@
 @import '../../variables';
 $spinner-color: $preloader-color;
 $size: 38px;
-$border-width: $size / 6;
-$radius: $size / 2;
-$border-offset: $border-width / 4;
+$border-width: calc($size / 6);
+$radius: calc($size / 2);
+$border-offset: calc($border-width / 4);
 $spinner-size: math.hypot($radius - $border-offset, $radius - $border-offset);
 
 .Spinner {

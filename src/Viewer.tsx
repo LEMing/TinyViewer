@@ -1,5 +1,6 @@
+import * as React from 'react';
+import {useMemo, useState} from 'react';
 import classNames from 'classnames';
-import React, {useMemo, useState} from 'react';
 import Preloader from './components/Preloader';
 import {DEFAULT_VIEWER_OPTIONS} from './constants';
 import {useClasses, useClientSize} from './hooks';

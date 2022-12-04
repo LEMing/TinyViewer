@@ -9,18 +9,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
-    "three": "^0.147.0",
+    "three": "^0.147.0"
+  },
+  "dependencies": {
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
     "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1",
     "sass": "^1.50.0",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "three": "^0.147.0",
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
@@ -36,9 +39,10 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/classnames": "^2.3.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.27",
-    "@types/react": "^18.0.5",
+    "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.1",
     "@types/three": "^0.139.0",
     "babel-jest": "^27.3.1",
