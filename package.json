@@ -7,7 +7,7 @@
     "test": "NODE_ENV=test jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alexey Degtyarik (LEM_ing)",
   "license": "ISC",
   "peerDependencies": {
     "react": "^18.2.0",
