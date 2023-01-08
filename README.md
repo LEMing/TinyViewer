@@ -3,40 +3,40 @@
 This project created for easy displaying 3D scenes in React applications using three.js
 The package provided as is, without build.
 
+### Basic usage
+
 The Viewer can be imported like this: 
 
 ```typescript
 import {Viewer} from 'tiny-viewer';
 ```
 
-and then used like this:
+and then used as a JSX element in a React application:
 
 ```typescript
-import {Viewer, viewerUtils} from 'tiny-viewer';
-
-import './SmallPreview.scss';
-
-const modelUrl = './data/banana.glb';
 const SmallPreview = () => {
-  const object3D = viewerUtils.loadGLB(modelUrl)
-  return <div className="small-preview-wrapper">
-    <Viewer object3D={object3D}/>
-  </div>
+  const modelUrl = './data/banana.glb'; // A url to a local or remote file
+  const object3D = viewerUtils.loadGLB(modelUrl) // A promise of object3D
+  return (
+    <div className="small-preview-wrapper">
+      <Viewer object3D={object3D}/>
+    </div>
+  )
 }
 ```
-![img.png](banana.png)
 
-The component takes all available space inside a wrapper and adjust the Renderer with resize.
-
+The component takes all available space inside a wrapper and adjusts the Renderer with resize.
+It should be placed inside a wrapper with defined size.
 ```css
 .small-preview-wrapper {
   width: 1080px;
   height: 610px;
-  border: 1px solid lightgrey;
 }
 ```
 
-The Viewer includes several properties for controlling the scene:
+### Extra properties
+
+The Viewer includes several optional properties for controlling the scene:
 
 ```html
 <Viewer
@@ -47,19 +47,17 @@ The Viewer includes several properties for controlling the scene:
     options={options}/>
 ```
 
-All properties are optional.
+The `animationRunner` is a function for animation loop.
 
-The animationRunner is a function for animation loop.
+The `object3D` is a promise of `THREE.Object3D`.
 
-The object3D is a promise of `THREE.Object3D`.
-
-Dispatchers allow you to get access to internal objects, such as Scene, Camera, Controls and Renderer
+`Dispatchers` allow you to get access to internal objects, such as Scene, Camera, Controls and Renderer
 For example, you can define a state in your app and pass the `setScene` to dispatchers to set the `scene` 
 ```const [scene, setScene] = useState<THREE.Scene | null>(null);```
 
-onSceneReady is a simple flag that will be set to true when everything is loaded and ready to be displayed.
+`onSceneReady` is a simple flag that will be set to true when everything is loaded and ready to be displayed.
 
-options allow us to use some pre-defined features, such as default light and helpers.
+`options` allow us to use some pre-defined features, such as default light and helpers.
 
 ```typescript
 export const DEFAULT_VIEWER_OPTIONS: ViewerOptions = {
