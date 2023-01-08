@@ -6,7 +6,15 @@
   "scripts": {
     "test": "NODE_ENV=test jest"
   },
-  "keywords": [],
+  "keywords": [
+    "viewer",
+    "3d models",
+    "glb",
+    "gltf",
+    "loader",
+    "three.js",
+    "react"
+  ],
   "author": "Alexey Degtyarik (LEM_ing)",
   "license": "ISC",
   "peerDependencies": {
