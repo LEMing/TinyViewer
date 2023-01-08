@@ -1,7 +1,7 @@
 import {Color} from 'three';
 import mockRenderer from '../../__mocks__/mockRenderer';
 import {DEFAULT_LIGHT_OPTIONS, DEFAULT_SCENE_OPTIONS} from '../../constants';
-import {createCamera, createControls, createLight, createRenderer, createScene} from '../environment';
+import {createCamera, createControls, createLight, createScene} from '../environment';
 
 describe('Should test environment functions', () => {
   test('Create a Camera object', () => {
@@ -26,11 +26,6 @@ describe('Should test environment functions', () => {
     const scene = createScene({...DEFAULT_SCENE_OPTIONS, background: backgroundColor});
     const sceneBackground: Color = scene.background as Color;
     expect(sceneBackground.getHex()).toEqual(backgroundColor);
-  });
-
-  test('Create Renderer object', () => {
-    const renderer = createRenderer();
-    expect(renderer).toBeDefined();
   });
 
   test('Create Light', () => {

@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader';
+import {getWebGLRenderer} from './getWebGLRenderer';
 import {ControlsProps, SceneProps, LightProps} from './types';
 import {isWebGLAvailable} from './utils';
 
@@ -32,17 +33,21 @@ export const createScene = (props: SceneProps) => {
 
 export const createRenderer = () => {
   if (isWebGLAvailable()) {
-    const myRenderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true, antialias: true});
-    myRenderer.setPixelRatio(window.devicePixelRatio);
-    myRenderer.shadowMap.enabled = true;
-    myRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    myRenderer.outputEncoding = THREE.sRGBEncoding;
-    myRenderer.toneMapping = THREE.ACESFilmicToneMapping;
-    myRenderer.toneMappingExposure = 0.85;
-    return myRenderer as THREE.Renderer;
+    const myRenderer = getWebGLRenderer();
+    setDefaultRendererSettings(myRenderer);
+    return myRenderer as THREE.WebGLRenderer;
   }
   throw new Error('WebGL context is not available here');
 };
+
+export const setDefaultRendererSettings = (renderer: THREE.WebGLRenderer) => {
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.85;
+}
 
 export const createControls = (props: ControlsProps) => {
   const {camera, renderer} = props;

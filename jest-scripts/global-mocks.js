@@ -1,4 +1,6 @@
 import mockRenderer from '../src/__mocks__/mockRenderer';
+import {getWebGLRenderer} from '../src/environment/getWebGLRenderer';
+import {isWebGLAvailable} from '../src/environment/utils';
 
 jest.mock('three/examples/jsm/loaders/RGBELoader', () => ({
   RGBELoader: jest.fn().mockImplementation(() => {
@@ -12,9 +14,9 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),
 }));
 
-jest.mock('../src/environment/environment', () => ({
-    ...jest.requireActual('../src/environment/environment'),
-    createRenderer: jest.fn().mockImplementation(() => mockRenderer),
+jest.mock('../src/environment/getWebGLRenderer', () => ({
+    ...jest.requireActual('../src/environment/getWebGLRenderer'),
+    getWebGLRenderer: jest.fn().mockImplementation(() => mockRenderer),
   }),
 );
 

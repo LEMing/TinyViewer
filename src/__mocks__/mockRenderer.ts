@@ -5,6 +5,7 @@ const mockRenderer = {
     domElement: div,
     setSize: jest.fn(),
     render: jest.fn(),
+    toneMappingExposure: 0.85
 };
 
 export default mockRenderer;

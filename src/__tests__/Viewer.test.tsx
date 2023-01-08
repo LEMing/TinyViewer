@@ -1,6 +1,7 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import React from 'react';
 import * as THREE from 'three';
+import mockRenderer from '../__mocks__/mockRenderer';
 import {createBoxOrSphere} from '../utils';
 import Viewer from '../Viewer';
 import '@testing-library/jest-dom';
@@ -10,6 +11,12 @@ jest.mock('../utils', () => ({
   ...jest.requireActual('../utils'),
   loadGLB: () => Promise.resolve(mockObject3D),
 }));
+
+jest.mock('../environment/environment', () => ({
+    ...jest.requireActual('../environment/environment'),
+  createRenderer: jest.fn().mockImplementation(() => mockRenderer),
+  }),
+);
 
 describe('Viewer component', () => {
   test('Should find "Initialisation error" message', async () => {
