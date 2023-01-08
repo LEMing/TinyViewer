@@ -16,6 +16,7 @@ import ViewerContext from '../ViewerContext';
 
 import './UniversalScene.scss';
 import ErrorMessage from "../components/ErrorMessage";
+import {fitObjectToCamera} from './utils';
 
 const UniversalScene = () => {
   const {
@@ -37,6 +38,12 @@ const UniversalScene = () => {
   const {isObjectAdded} = useObject3D(threeEnv.scene, object3D);
   useOnSceneReady(onSceneReady);
   useOnDidMount({threeEnv, threeRoot, animationRunner});
+
+  useEffect(function alignObjectInViewport() {
+    object3D?.then(model => {
+      fitObjectToCamera(model, threeEnv.camera, threeEnv.controls)
+    })
+  }, [object3D, threeEnv.camera])
 
   useEffect(function onObjectLoaded() {
     setIsLoading(!isObjectAdded);

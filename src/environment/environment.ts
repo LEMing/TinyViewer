@@ -5,7 +5,7 @@ import {ControlsProps, SceneProps, LightProps} from './types';
 import {isWebGLAvailable} from './utils';
 
 export const createCamera = () => {
-  const myCamera = new THREE.PerspectiveCamera(30, undefined, 1, 5000);
+  const myCamera = new THREE.PerspectiveCamera(30, undefined, 1, 100000);
   myCamera.position.set(0, 2, 20);
   return myCamera;
 };
@@ -51,7 +51,7 @@ export const createControls = (props: ControlsProps) => {
   myControls.enableDamping = false;
   myControls.enablePan = false;
   myControls.enableZoom = true;
-  myControls.maxDistance = 300;
+  myControls.maxDistance = 1000000;
   myControls.minDistance = 0.1;
   myControls.screenSpacePanning = false;
   myControls.target = new THREE.Vector3(0, 1.5, 0);

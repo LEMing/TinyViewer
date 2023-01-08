@@ -11,8 +11,8 @@ const DEFAULT_ENVIRONMENT: EnvironmentOptions = {
   sceneOptions: {
     fog: {
       color: 0xFFFFFF,
-      near: 10,
-      far: 500
+      near: 1,
+      far: 1000000
     },
     sceneColor: 0xFAFDFE,
     envMapUrl: 'data/venice_sunset_1k.hdr',
@@ -20,7 +20,7 @@ const DEFAULT_ENVIRONMENT: EnvironmentOptions = {
 };
 
 export const DEFAULT_VIEWER_OPTIONS: ViewerOptions = {
-  addDefaultHelpers: true,
+  addDefaultHelpers: false,
   addDefaultLight: true,
   environment: DEFAULT_ENVIRONMENT,
 }
