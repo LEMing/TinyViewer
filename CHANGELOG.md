@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.6
+---
+* Update Readme.
+* Add more unit tests
+
 1.1.5
 ---
 * Update Readme
