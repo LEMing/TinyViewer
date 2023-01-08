@@ -5,24 +5,46 @@ The package provided as is, without build.
 
 The Viewer can be imported like this: 
 
-```
+```typescript
 import {Viewer} from 'tiny-viewer';
 ```
 
 and then used like this:
 
+```typescript
+import {Viewer, viewerUtils} from 'tiny-viewer';
+
+import './SmallPreview.scss';
+
+const modelUrl = './data/banana.glb';
+const SmallPreview = () => {
+  const object3D = viewerUtils.loadGLB(modelUrl)
+  return <div className="small-preview-wrapper">
+    <Viewer object3D={object3D}/>
+  </div>
+}
 ```
-<Viewer object3D={object3D}/>
+![img.png](banana.png)
+
+The component takes all available space inside a wrapper and adjust the Renderer with resize.
+
+```css
+.small-preview-wrapper {
+  width: 1080px;
+  height: 610px;
+  border: 1px solid lightgrey;
+}
 ```
+
 The Viewer includes several properties for controlling the scene:
-```
+
+```html
 <Viewer
     animationRunner={animationRunner}
     dispatchers={{setScene}}
     object3D={object3D}
     onSceneReady={onSceneReady}
-    options={options}
-/>
+    options={options}/>
 ```
 
 All properties are optional.
@@ -39,7 +61,7 @@ onSceneReady is a simple flag that will be set to true when everything is loaded
 
 options allow us to use some pre-defined features, such as default light and helpers.
 
-```
+```typescript
 export const DEFAULT_VIEWER_OPTIONS: ViewerOptions = {
 addDefaultHelpers: true,
 addDefaultLight: true,
