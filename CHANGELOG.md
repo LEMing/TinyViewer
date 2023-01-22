@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0.0
+---
+* Added build step.
+
 1.1.6
 ---
 * Update Readme.

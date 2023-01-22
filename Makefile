@@ -7,6 +7,9 @@ install:
 test:
 	npm run test
 
+build: test
+	npm run build
+
 release: tag
 	npm publish
 
