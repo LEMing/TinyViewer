@@ -1,7 +1,6 @@
 # TinyViewer
 
 This project created for easy displaying 3D scenes in React applications using three.js
-The package provided as is, without build.
 
 ### Installation and Usage (CLI)
 
